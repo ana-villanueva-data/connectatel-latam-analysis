@@ -2,156 +2,121 @@
 
 ## Descripción del Proyecto
 
-El objetivo de este proyecto es analizar el comportamiento de los clientes de ConnectaTel LATAM a partir de información demográfica, planes contratados y patrones de uso de servicios de telecomunicaciones.
+El objetivo de este proyecto es analizar el comportamiento de los clientes de ConnectaTel LATAM utilizando información demográfica, planes contratados y patrones de uso de servicios de telecomunicaciones.
 
-El análisis incluye procesos de exploración, limpieza de datos, detección de problemas de calidad, análisis estadístico, visualización, detección de outliers y segmentación de clientes para generar recomendaciones de negocio.
+A través de técnicas de limpieza, exploración y análisis de datos, se identifican patrones de comportamiento, segmentos de clientes y oportunidades de negocio para mejorar la oferta de servicios.
 
 ---
 
 ## Datasets Utilizados
 
-### plans.csv
-
-Contiene la información de los planes disponibles para los clientes:
-
-* plan_name
-* messages_included
-* gb_per_month
-* minutes_included
-* usd_monthly_pay
-* usd_per_gb
-* usd_per_message
-* usd_per_minute
-
 ### users_latam.csv
+Contiene información de los usuarios:
 
-Contiene información de los clientes:
-
-* user_id
-* first_name
-* last_name
-* age
-* city
-* reg_date
-* plan
-* churn_date
+- user_id
+- first_name
+- last_name
+- age
+- city
+- reg_date
+- plan
+- churn_date
 
 ### usage.csv
+Contiene la actividad de los usuarios:
 
-Contiene el historial de uso de servicios:
+- id
+- user_id
+- type
+- date
+- duration
+- length
 
-* id
-* user_id
-* type
-* date
-* duration
-* length
+### plans.csv
+Contiene información sobre los planes disponibles:
+
+- plan_name
+- messages_included
+- gb_per_month
+- minutes_included
+- usd_monthly_pay
+- usd_per_gb
+- usd_per_message
+- usd_per_minute
 
 ---
 
 ## Etapas del Análisis
 
-### 1. Exploración de Datos
-
-* Revisión de estructura de los datasets.
-* Análisis de tipos de datos.
-* Identificación de valores nulos.
-* Revisión de valores inválidos y sentinels.
+### 1. Exploración Inicial
+- Revisión de estructura y tipos de datos.
+- Identificación de valores nulos.
+- Detección de valores inválidos o sentinels.
 
 ### 2. Limpieza de Datos
-
-Se identificaron y corrigieron los siguientes problemas:
-
-* Valor inválido -999 en la columna age.
-* Valor "?" en la columna city.
-* Fechas futuras (2026) en reg_date.
-* Revisión de nulos en duration y length.
+- Reemplazo del valor sentinel `-999` en la columna `age`.
+- Reemplazo de `?` por valores nulos en `city`.
+- Corrección de fechas fuera de rango.
+- Validación de nulos en las variables de uso.
 
 ### 3. Análisis Estadístico
+- Resumen estadístico de variables numéricas.
+- Distribución de planes contratados.
+- Análisis de comportamiento por usuario.
 
-Se calcularon:
+### 4. Visualización de Datos
+- Histogramas para:
+  - Edad
+  - Cantidad de mensajes
+  - Cantidad de llamadas
+  - Minutos de llamada
 
-* Medidas de tendencia central.
-* Medidas de dispersión.
-* Distribuciones categóricas.
-* Resúmenes por usuario.
+- Boxplots para detección de outliers.
 
-### 4. Visualización
+### 5. Segmentación de Clientes
 
-Se generaron histogramas para:
+#### Segmentación por Uso
+- Bajo uso
+- Uso medio
+- Alto uso
 
-* Edad
-* Cantidad de mensajes
-* Cantidad de llamadas
-* Minutos de llamada
+#### Segmentación por Edad
+- Joven
+- Adulto
+- Adulto Mayor
 
-También se utilizaron boxplots para detectar valores atípicos.
-
-### 5. Detección de Outliers
-
-Se aplicó el método IQR para identificar valores extremos en:
-
-* cant_mensajes
-* cant_llamadas
-* cant_minutos_llamada
-
-### 6. Segmentación de Clientes
-
-Se crearon segmentos por:
-
-#### Nivel de Uso
-
-* Bajo uso
-* Uso medio
-* Alto uso
-
-#### Edad
-
-* Joven
-* Adulto
-* Adulto Mayor
-
-### 7. Insights y Recomendaciones
-
-Se identificaron oportunidades comerciales relacionadas con:
-
-* Usuarios de alto consumo.
-* Migración de clientes hacia planes Premium.
-* Segmentación por edad.
-* Optimización de ofertas comerciales.
+### 6. Insights y Recomendaciones
+Se generaron conclusiones orientadas al negocio basadas en los patrones de uso y segmentos identificados.
 
 ---
 
 ## Principales Hallazgos
 
-* El plan Basico concentra aproximadamente el 64.9% de los usuarios.
-* El plan Premium representa aproximadamente el 35.1%.
-* La mayoría de los clientes pertenece al segmento de Uso Medio.
-* Los usuarios Adultos constituyen el grupo de edad más numeroso.
-* Existen usuarios con consumos muy elevados de minutos de llamada que representan oportunidades comerciales relevantes.
+- El plan Básico concentra aproximadamente el 65% de los usuarios.
+- El plan Premium representa cerca del 35% de los clientes.
+- La mayoría de los usuarios pertenece al segmento de uso medio.
+- Los adultos representan el grupo de edad más numeroso.
+- Se identificaron usuarios con consumos elevados de minutos de llamada que podrían representar oportunidades para planes de mayor valor.
 
 ---
 
-## Cómo Ejecutar el Proyecto
+## Herramientas Utilizadas
 
-### Google Colab
-
-1. Abrir el notebook `.ipynb`.
-2. Cargar los datasets requeridos.
-3. Ejecutar las celdas en orden.
-
-### Jupyter Notebook
-
-1. Instalar dependencias:
-
-```python
-pip install pandas matplotlib seaborn numpy
-```
-
-2. Abrir el notebook.
-3. Ejecutar todas las celdas secuencialmente.
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Jupyter Notebook
 
 ---
+
+
+## Autor
+
+Ana Villanueva
+
+Proyecto desarrollado como parte del programa Data Analyst de TripleTen.
 
 ## Autor
 
