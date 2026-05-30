@@ -2,7 +2,7 @@
 
 ## Descripción del Proyecto
 
-El objetivo de este proyecto es analizar el comportamiento de los clientes de ConnectaTel LATAM utilizando información demográfica, planes contratados y patrones de uso de servicios de telecomunicaciones.
+El objetivo de este proyecto es analizar el comportamiento de los clientes de ConnectaTel LATAM utilizando información demográfica, Planes contratados y patrones de uso de servicios de telecomunicaciones.
 
 A través de técnicas de limpieza, exploración y análisis de datos, se identifican patrones de comportamiento, segmentos de clientes y oportunidades de negocio para mejorar la oferta de servicios.
 
